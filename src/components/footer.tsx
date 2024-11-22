@@ -11,10 +11,7 @@ export default function Footer() {
               Twitter / X
             </p>
           </Link>
-          <Link
-            href="https://bsky.app/profile/paukraft.bsky.social"
-            target="_blank"
-          >
+          <Link href="https://bsky.app/profile/paukraft.com" target="_blank">
             <p className="text-sm text-muted-foreground hover:underline">
               Bluesky
             </p>

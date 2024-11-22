@@ -19,7 +19,7 @@ export default function Home() {
             Projects
           </a>
           <a
-            href="https://bsky.app/profile/paukraft.bsky.social"
+            href="https://bsky.app/profile/paukraft.com"
             target="_blank"
             className="hover:italic"
           >
