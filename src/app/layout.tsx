@@ -1,4 +1,5 @@
 import Footer from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 import { TrackiTrack } from '@/components/tracki-track'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
@@ -25,9 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn('antialiased font-urbanist', urbanist.variable)}>
-        {children}
-        <Footer />
-        <TrackiTrack />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Footer />
+          <TrackiTrack />
+        </ThemeProvider>
       </body>
     </html>
   )

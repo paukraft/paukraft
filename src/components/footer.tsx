@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ModeToggle } from './theme-toggle'
 
 export default function Footer() {
   return (
@@ -6,6 +7,7 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 py-6 px-6">
         <p className="text-xs text-muted-foreground">by Pau Kraft</p>
         <div className="flex flex-wrap items-center justify-center gap-5">
+          <ModeToggle />
           <Link href="https://twitter.com/paukraft" target="_blank">
             <p className="text-sm text-muted-foreground hover:underline">
               Twitter / X
