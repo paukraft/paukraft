@@ -1,3 +1,4 @@
+import LetterSwapPingPong from '@/components/ui/letter-swap-pingpong-anim'
 import { FC } from 'react'
 
 const About: FC = () => {
@@ -9,20 +10,73 @@ const About: FC = () => {
       <h2 className="text-4xl md:text-6xl font-black">About</h2>
       <div className="grid gap-6 md:gap-8 text-lg md:text-xl text-muted-foreground">
         <p>
-          I&apos;m a fullstack web developer based in Germany. My expertise lies
-          deep within the Next.js ecosystem, where I build digital experiences
+          I&apos;m a{' '}
+          <LetterSwapPingPong
+            label="fullstack web developer"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          based in Germany. My expertise lies deep within the{' '}
+          <LetterSwapPingPong
+            label="Next.js ecosystem"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          where I build{' '}
+          <LetterSwapPingPong
+            label="digital experiences"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
           that bridge functionality and user experience.
         </p>
         <p>
           While I primarily identify as a developer, I&apos;ve cultivated an eye
-          for UI design—creating interfaces that are both functional and
-          aesthetically pleasing. Though I wouldn&apos;t call myself a designer,
-          I understand the principles that make digital products feel right.
+          for{' '}
+          <LetterSwapPingPong
+            label="UI design"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          —creating interfaces that are both functional and aesthetically
+          pleasing. Though I wouldn&apos;t call myself a designer, I understand
+          the principles that make digital products{' '}
+          <LetterSwapPingPong
+            label="feel right."
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />
         </p>
         <p>
-          My curiosity extends beyond code. I&apos;m fascinated by everything
-          tech and science, always eager to explore new technologies and
-          understand how things work at their core.
+          My recent focus has been on developing{' '}
+          <LetterSwapPingPong
+            label="AI agent systems"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          that automate traditionally human tasks. These{' '}
+          <LetterSwapPingPong
+            label="intelligent agents"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          either handle entire workflows to dramatically boost efficiency, or
+          work alongside humans to tackle mundane tasks. This{' '}
+          <LetterSwapPingPong
+            label="automation"
+            staggerFrom={'center'}
+            reverse={false}
+            className="text-primary"
+          />{' '}
+          empowers teams to focus on what truly matters - the creative and
+          strategic elements that machines can&apos;t replace.
         </p>
       </div>
     </section>
