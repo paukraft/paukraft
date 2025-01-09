@@ -33,7 +33,7 @@ export const MyTechStack = () => {
     <div className="flex justify-center mb-24 md:mb-72">
       <section
         id="tech-stack"
-        className="relative overflow-hidden md:min-w-[1000px]"
+        className="relative overflow-hidden md:min-w-[1000px] max-sm:w-full"
       >
         <div className="absolute inset-0">
           <AnimatedGradient
@@ -44,7 +44,7 @@ export const MyTechStack = () => {
             className="dark:invert dark:hue-rotate-180"
           />
         </div>
-        <div className="relative p-10 mx-auto w-min">
+        <div className="relative p-10 max-sm:px-0 mx-auto w-min">
           <LogoCarousel columnCount={3} logos={techStackLogos} speed={3000} />
         </div>
       </section>

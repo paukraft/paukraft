@@ -8,7 +8,7 @@ import Projects from './projects'
 export default function Home() {
   return (
     <>
-      <main className="min-h-[98dvh] flex items-center justify-center relative">
+      <main className="min-h-[98svh] flex items-center justify-center relative">
         <div className="absolute top-12 bg-background hover:bg-muted px-4 py-1.5 text-base gap-2 inline-flex items-center rounded-full border transition-colors">
           <VerticalCutReveal
             splitBy="characters"
