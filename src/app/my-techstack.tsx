@@ -4,10 +4,12 @@ import AnimatedGradient from '@/components/ui/animated-gradient'
 import { LogoCarousel } from '@/components/ui/logo-carousel'
 import { FaAws } from 'react-icons/fa'
 import {
+  SiDrizzle,
   SiNextdotjs,
   SiOpenai,
   SiPostgresql,
   SiPosthog,
+  SiPrisma,
   SiReact,
   SiShadcnui,
   SiTailwindcss,
@@ -26,6 +28,8 @@ const techStackLogos = [
   { name: 'shadcn/ui', icon: SiShadcnui },
   { name: 'PostHog', icon: SiPosthog },
   { name: 'OpenAI', icon: SiOpenai },
+  { name: 'Prisma', icon: SiPrisma },
+  { name: 'Drizzle', icon: SiDrizzle },
 ]
 
 export const MyTechStack = () => {
