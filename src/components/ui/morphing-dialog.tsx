@@ -10,7 +10,6 @@ import {
   Transition,
   Variant,
 } from 'motion/react'
-import Image, { StaticImageData } from 'next/image'
 import React, {
   useCallback,
   useContext,
@@ -41,6 +40,7 @@ function useMorphingDialog() {
   }
   return context
 }
+
 export type MorphingDialogProviderProps = {
   children: React.ReactNode
   transition?: Transition
@@ -358,14 +358,10 @@ function MorphingDialogDescription({
 }
 
 export type MorphingDialogImageProps = {
-  src: string | StaticImageData
+  src: string
   alt: string
   className?: string
   style?: React.CSSProperties
-  useNextImage?: boolean
-  width?: number
-  height?: number
-  priority?: boolean
 }
 
 function MorphingDialogImage({
@@ -373,27 +369,16 @@ function MorphingDialogImage({
   alt,
   className,
   style,
-  useNextImage = false,
-  width,
-  height,
-  priority = false,
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog()
 
-  const MotionImage = motion(useNextImage ? Image : 'img')
-
   return (
-    <MotionImage
+    <motion.img
       src={src}
       alt={alt}
       className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
       style={style}
-      {...(useNextImage && {
-        width: width || (typeof src !== 'string' ? src.width : undefined),
-        height: height || (typeof src !== 'string' ? src.height : undefined),
-        priority,
-      })}
     />
   )
 }

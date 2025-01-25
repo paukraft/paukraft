@@ -8,27 +8,18 @@ import {
 } from '@/components/ui/morphing-dialog'
 import { cn } from '@/lib/utils'
 import { XIcon } from 'lucide-react'
-import { StaticImageData } from 'next/image'
-
-export type ImageWithFullscreenProps = {
-  src: string | StaticImageData
-  alt: string
-  className?: string
-  priority?: boolean
-  onOpenChange?: (isOpen: boolean) => void
-  title?: string
-}
 
 export const ImageWithFullscreen = ({
   src,
   alt,
-  className = 'max-w-xs',
-  priority = false,
+  className,
   onOpenChange,
-  title,
-}: ImageWithFullscreenProps) => {
-  const isStaticImage = typeof src !== 'string'
-
+}: {
+  src: string
+  alt: string
+  className?: string
+  onOpenChange?: (isOpen: boolean) => void
+}) => {
   return (
     <MorphingDialog
       transition={{
@@ -38,14 +29,11 @@ export const ImageWithFullscreen = ({
       onOpenChange={onOpenChange}
     >
       <MorphingDialogTrigger>
-        <div className={cn('cursor-zoom-in relative', className)}>
-          <MorphingDialogImage
-            src={src}
-            alt={alt}
-            useNextImage={isStaticImage}
-            priority={priority}
-          />
-        </div>
+        <MorphingDialogImage
+          src={src}
+          alt={alt}
+          className={cn('cursor-zoom-in', className)}
+        />
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative">
@@ -53,8 +41,6 @@ export const ImageWithFullscreen = ({
             src={src}
             alt={alt}
             className="h-auto w-full max-w-[90vw] rounded-[4px] object-cover max-h-[90vh]"
-            useNextImage={isStaticImage}
-            priority={priority}
           />
         </MorphingDialogContent>
         <MorphingDialogClose

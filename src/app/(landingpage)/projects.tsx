@@ -1,16 +1,5 @@
 'use client'
 
-import AutoRedditShorts from '@/assets/app-screenshots/autoredditshorts.com-lp.png'
-import AutoRedditShortsShort from '@/assets/app-screenshots/autoredditshorts.com-short.png'
-import BrandixGenerator from '@/assets/app-screenshots/brandix.ai-generator.png'
-import BrandixLP from '@/assets/app-screenshots/brandix.ai-lp.png'
-import SharringsLP from '@/assets/app-screenshots/sharrin.gs-lp.png'
-import SharringsProfile from '@/assets/app-screenshots/sharrin.gs-profile.png'
-import PaukraftUI from '@/assets/app-screenshots/ui.paukraft.com-lp.png'
-import PaukraftUIRadiusCalculator from '@/assets/app-screenshots/ui.paukraft.com-radius-calculator.png'
-import WebposterLab from '@/assets/app-screenshots/webposterlab.com-lp.png'
-import WebposterLabNBA from '@/assets/app-screenshots/webposterlab.com-nba.png'
-
 import { ImageWithFullscreen } from '@/components/image-with-fullscreen'
 import { LPSectionTitle } from '@/components/lp-components'
 import ComesInGoesOutUnderline from '@/components/ui/underline-comes-in-goes-out'
@@ -18,7 +7,6 @@ import VariableFontHoverByLetter from '@/components/ui/variable-font-hover-by-le
 import { cn } from '@/lib/utils'
 import { ArrowRight, Github } from 'lucide-react'
 import { motion } from 'motion/react'
-import { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { useCallback, useRef, useState } from 'react'
 
@@ -29,7 +17,7 @@ interface Project {
   year: string
   githubLink?: string
   images?: {
-    image: StaticImageData
+    src: string
     description: string
   }[]
   faviconHasBG?: boolean
@@ -45,11 +33,11 @@ const projects: Project[] = [
     githubLink: 'https://github.com/paukraft/ui',
     images: [
       {
-        image: PaukraftUI,
+        src: '/app-screenshots/ui.paukraft.com-lp.png',
         description: 'Landing Page',
       },
       {
-        image: PaukraftUIRadiusCalculator,
+        src: '/app-screenshots/ui.paukraft.com-radius-calculator.png',
         description: 'Radius Calculator',
       },
     ],
@@ -63,11 +51,11 @@ const projects: Project[] = [
     year: '2024',
     images: [
       {
-        image: AutoRedditShorts,
+        src: '/app-screenshots/autoredditshorts.com-lp.png',
         description: 'Landing Page',
       },
       {
-        image: AutoRedditShortsShort,
+        src: '/app-screenshots/autoredditshorts.com-short.png',
         description: 'Short Details',
       },
     ],
@@ -81,11 +69,11 @@ const projects: Project[] = [
     year: '2023',
     images: [
       {
-        image: BrandixLP,
+        src: '/app-screenshots/brandix.ai-lp.png',
         description: 'Landing Page',
       },
       {
-        image: BrandixGenerator,
+        src: '/app-screenshots/brandix.ai-generator.png',
         description: 'Generator',
       },
     ],
@@ -100,11 +88,11 @@ const projects: Project[] = [
     githubLink: 'https://github.com/paukraft/webposter-lab',
     images: [
       {
-        image: WebposterLab,
+        src: '/app-screenshots/webposterlab.com-lp.png',
         description: 'Landing Page',
       },
       {
-        image: WebposterLabNBA,
+        src: '/app-screenshots/webposterlab.com-nba.png',
         description: 'Poster Details',
       },
     ],
@@ -118,11 +106,11 @@ const projects: Project[] = [
     year: '2021',
     images: [
       {
-        image: SharringsLP,
+        src: '/app-screenshots/sharrin.gs-lp.png',
         description: 'Landing Page',
       },
       {
-        image: SharringsProfile,
+        src: '/app-screenshots/sharrin.gs-profile.png',
         description: 'Profile',
       },
     ],
@@ -173,7 +161,7 @@ const Project = ({ project }: { project: Project }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <motion.article
+        <article
           className={cn(
             'flex flex-col gap-4 transition-transform',
             'transition-[z-index] duration-300 relative',
@@ -249,7 +237,7 @@ const Project = ({ project }: { project: Project }) => {
             {project.images?.map((image, index) => (
               <ImageWithFullscreen
                 key={index}
-                src={image.image}
+                src={image.src}
                 alt={`${project.title} ${image.description}`}
                 className="ring-1 ring-muted"
                 onOpenChange={(isOpen) => {
@@ -258,11 +246,10 @@ const Project = ({ project }: { project: Project }) => {
                     setTimeout(stopHovered, 0)
                   }
                 }}
-                title={image.description}
               />
             ))}
           </div>
-        </motion.article>
+        </article>
       </div>
     </div>
   )
