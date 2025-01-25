@@ -1,13 +1,13 @@
+import { LPSectionTitle } from '@/components/lp-components'
 import LetterSwapPingPong from '@/components/ui/letter-swap-pingpong-anim'
-import { FC } from 'react'
 
-const About: FC = () => {
+export const About = () => {
   return (
     <section
       id="about"
       className="w-full max-w-5xl mx-auto px-6 md:px-24 flex flex-col gap-12 md:gap-24 mb-24 md:mb-72"
     >
-      <h2 className="text-4xl md:text-6xl font-black">About</h2>
+      <LPSectionTitle>About</LPSectionTitle>
       <div className="grid gap-6 md:gap-8 text-lg md:text-xl text-muted-foreground">
         <p>
           I&apos;m a{' '}
@@ -82,5 +82,3 @@ const About: FC = () => {
     </section>
   )
 }
-
-export default About
