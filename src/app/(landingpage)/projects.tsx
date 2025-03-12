@@ -2,13 +2,9 @@
 
 import { ImageWithFullscreen } from '@/components/image-with-fullscreen'
 import { LPSectionTitle } from '@/components/lp-components'
-import ComesInGoesOutUnderline from '@/components/ui/underline-comes-in-goes-out'
-import VariableFontHoverByLetter from '@/components/ui/variable-font-hover-by-letter'
 import { cn } from '@/lib/utils'
-import { ArrowRight, Github } from 'lucide-react'
-import { motion } from 'motion/react'
+import { ArrowUpRight, Github } from 'lucide-react'
 import Link from 'next/link'
-import { useCallback, useRef, useState } from 'react'
 
 interface Project {
   title: string
@@ -28,7 +24,7 @@ const projects: Project[] = [
     title: 'paukraft UI',
     url: 'https://ui.paukraft.com',
     description:
-      'A collection of unique and playful UI components built with React and Tailwind CSS. Features experimental interfaces like bike pump sliders and slingshot controls, alongside practical components like comparison sliders and animated icons. Fully compatible with shadcn/ui and ready to use in your next project.',
+      'A collection of unique and practical UI components built with React and Tailwind CSS. Features experimental interfaces alongside practical components like comparison sliders and animated icons. Fully compatible with shadcn/ui.',
     year: '2025',
     githubLink: 'https://github.com/paukraft/ui',
     images: [
@@ -47,7 +43,7 @@ const projects: Project[] = [
     title: 'AutoRedditShorts',
     url: 'https://autoredditshorts.com',
     description:
-      'An automation service for creating and posting TikTok videos using content from chosen subreddits. Users can select a subreddit, set a posting schedule, and generate video shorts based on popular posts, with various customization options.',
+      'An automation service for creating and posting TikTok videos using content from chosen subreddits. Users can select a subreddit, set a posting schedule, and generate video shorts based on popular posts.',
     year: '2024',
     images: [
       {
@@ -122,10 +118,10 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full max-w-5xl mx-auto px-6 md:px-24 pb-12 md:pb-24 flex flex-col gap-12 md:gap-24"
+      className="w-full max-w-5xl mx-auto px-6 md:px-12 pb-12 md:pb-24 flex flex-col gap-10 md:gap-16"
     >
       <LPSectionTitle>Side Projects</LPSectionTitle>
-      <div className="grid gap-12 md:gap-16">
+      <div className="grid gap-10 md:gap-12">
         {projects.map((project) => (
           <Project key={project.title} project={project} />
         ))}
@@ -135,45 +131,12 @@ export const Projects = () => {
 }
 
 const Project = ({ project }: { project: Project }) => {
-  const ref = useRef<HTMLAnchorElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
-
-  const stopHovered = useCallback(() => {
-    setIsHovered(false)
-  }, [])
-
   return (
-    <div className="relative">
-      <motion.div
-        className={cn(
-          'fixed inset-0',
-          'bg-dots-pattern dark:bg-dots-pattern-dark',
-          '[background-size:4px_4px]',
-          '[backdrop-filter:brightness(1.2)_blur(3px)]',
-          'opacity-0 transition-opacity duration-300 pointer-events-none',
-          'z-[1]',
-          'max-sm:hidden',
-          isHovered && 'opacity-80'
-        )}
-      />
-      <div
-        className="group relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <article
-          className={cn(
-            'flex flex-col gap-4 transition-transform',
-            'transition-[z-index] duration-300 relative',
-            isHovered ? 'z-[2]' : 'z-0'
-          )}
-        >
-          <Link
-            href={project.url}
-            target="_blank"
-            ref={ref}
-            className="flex flex-col gap-2 sm:gap-4"
-          >
+    <div className="group border border-muted rounded-lg p-5 md:p-6 hover:border-muted-foreground/20 transition-colors">
+      <div className="flex flex-col gap-5">
+        {/* Header */}
+        <div className="flex flex-col gap-3">
+          <div className="flex items-start justify-between">
             <div className="flex gap-2">
               <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit">
                 {project.year}
@@ -187,69 +150,60 @@ const Project = ({ project }: { project: Project }) => {
                   <Github className="inline-block h-3 w-3 mr-0.5" />
                   <span className="max-sm:hidden">Open Source</span>
                   <span className="sm:hidden">OS</span>
-                  <ArrowRight
-                    className="sm:block size-3 -translate-x-1 transition-transform group-hover/github:translate-x-0"
-                    strokeWidth={1.5}
-                  />
                 </Link>
               )}
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-              <div className="flex items-center gap-2">
-                <div
-                  className={cn(
-                    'flex items-center gap-2',
-                    !project.faviconHasBG && 'bg-muted rounded-md p-1'
-                  )}
-                >
-                  <img
-                    src={`https://www.google.com/s2/favicons?domain=${project.url}&sz=32`}
-                    alt={`${project.title} favicon`}
-                    className="size-4 sm:size-6 rounded-sm"
-                  />
-                </div>
-                <ComesInGoesOutUnderline direction="left" listenerRef={ref}>
-                  <h3 className="text-2xl md:text-3xl">
-                    <VariableFontHoverByLetter
-                      label={project.title}
-                      staggerDuration={0.03}
-                      fromFontVariationSettings="'wght' 400, 'slnt' 0"
-                      toFontVariationSettings="'wght' 800, 'slnt' -10"
-                      showBackground={false}
-                      isHovered={isHovered}
-                    />
-                  </h3>
-                </ComesInGoesOutUnderline>
-              </div>
-              <span className="text-sm md:text-base text-muted-foreground">
-                {project.url.replace('https://', '')}
-              </span>
-              <ArrowRight
-                className="hidden sm:block w-5 h-5 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0"
-                strokeWidth={1.5}
+          </div>
+
+          <Link
+            href={project.url}
+            target="_blank"
+            className="flex items-start gap-2 group/link"
+          >
+            <div
+              className={cn(
+                'flex items-center',
+                !project.faviconHasBG && 'bg-muted rounded-md p-1'
+              )}
+            >
+              <img
+                src={`https://www.google.com/s2/favicons?domain=${project.url}&sz=32`}
+                alt={`${project.title} favicon`}
+                className="size-4 sm:size-5 rounded-sm"
               />
             </div>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
-              {project.description}
-            </p>
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-semibold group-hover/link:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <ArrowUpRight className="size-4 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+              </div>
+              <span className="text-sm text-muted-foreground">
+                {project.url.replace('https://', '')}
+              </span>
+            </div>
           </Link>
+        </div>
+
+        {/* Description */}
+        <p className="text-sm md:text-base text-muted-foreground">
+          {project.description}
+        </p>
+
+        {/* Images */}
+        {project.images && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.images?.map((image, index) => (
+            {project.images.map((image, index) => (
               <ImageWithFullscreen
                 key={index}
                 src={image.src}
                 alt={`${project.title} ${image.description}`}
-                className="ring-1 ring-muted"
-                onOpenChange={(isOpen) => {
-                  if (isOpen) {
-                    // Need to delay the state update to ensure it happens after the dialog opens
-                    setTimeout(stopHovered, 0)
-                  }
-                }}
+                className="rounded-md ring-1 ring-muted"
               />
             ))}
           </div>
-        </article>
+        )}
       </div>
     </div>
   )

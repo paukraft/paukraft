@@ -1,11 +1,8 @@
 'use client'
 
 import { LPSectionTitle } from '@/components/lp-components'
-import LetterSwapPingPong from '@/components/ui/letter-swap-pingpong-anim'
 import { cn } from '@/lib/utils'
-import { motion } from 'motion/react'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
 
 type CareerEntry = {
   company: string
@@ -52,11 +49,11 @@ const careerData: CareerEntry[] = [
 export const Career = () => {
   return (
     <section
-      id="career"
-      className="w-full max-w-5xl mx-auto px-6 md:px-24 flex flex-col gap-12 md:gap-24 mb-24 md:mb-72"
+      id="work-experience"
+      className="w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-10 md:gap-16 mb-24 md:mb-48"
     >
-      <LPSectionTitle>Career</LPSectionTitle>
-      <div className="grid gap-12 md:gap-16">
+      <LPSectionTitle>Work Experience</LPSectionTitle>
+      <div className="grid gap-10 md:gap-12">
         {careerData.map((entry, index) => (
           <CareerEntry key={index} entry={entry} />
         ))}
@@ -66,48 +63,16 @@ export const Career = () => {
 }
 
 const CareerEntry = ({ entry }: { entry: CareerEntry }) => {
-  const ref = useRef<HTMLAnchorElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
-    <div className="relative">
-      <motion.div
-        className={cn(
-          'fixed inset-0',
-          'bg-dots-pattern dark:bg-dots-pattern-dark',
-          '[background-size:4px_4px]',
-          '[backdrop-filter:brightness(1.2)_blur(3px)]',
-          'opacity-0 transition-opacity duration-300 pointer-events-none',
-          'z-[1]',
-          'max-sm:hidden',
-          isHovered && 'opacity-80'
-        )}
-      />
-      <Link
-        href={entry.url}
-        target="_blank"
-        className="group block relative"
-        ref={ref}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <motion.article
-          className={cn(
-            'relative transition-transform',
-            'transition-[z-index] duration-300 relative',
-            isHovered ? 'z-[2]' : 'z-0'
-          )}
-        >
+    <div className="group">
+      <Link href={entry.url} target="_blank" className="block relative">
+        <article className="relative transition-all">
           <div className="flex flex-col gap-4">
+            {/* Header */}
             <div className="flex flex-col gap-1">
               <div className="inline-flex items-baseline gap-2">
-                <h3 className="text-2xl md:text-3xl">
-                  <LetterSwapPingPong
-                    label={entry.company}
-                    staggerFrom={'center'}
-                    reverse={false}
-                    className="group-hover:text-primary transition-colors"
-                  />
+                <h3 className="text-2xl md:text-3xl font-semibold group-hover:text-primary transition-colors">
+                  {entry.company}
                 </h3>
                 <span className="text-sm text-muted-foreground/60">
                   {entry.companyType}
@@ -123,11 +88,13 @@ const CareerEntry = ({ entry }: { entry: CareerEntry }) => {
               </div>
             </div>
 
+            {/* Description */}
             <p className="text-sm md:text-base text-muted-foreground max-w-2xl">
               {entry.description}
             </p>
 
-            <div className="flex flex-wrap gap-2">
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-2 mt-1">
               {entry.technologies.map((tech, techIndex) => (
                 <span
                   key={techIndex}
@@ -141,7 +108,7 @@ const CareerEntry = ({ entry }: { entry: CareerEntry }) => {
               ))}
             </div>
           </div>
-        </motion.article>
+        </article>
       </Link>
     </div>
   )
