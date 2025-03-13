@@ -124,7 +124,7 @@ export const Projects = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.5 }}
       >
         <LPSectionTitle>Side Projects</LPSectionTitle>
@@ -136,7 +136,7 @@ export const Projects = () => {
             key={project.title}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
           >
             <Project project={project} />
@@ -158,7 +158,7 @@ const Project = ({ project }: { project: Project }) => {
               <motion.span
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.3 }}
                 className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit"
               >
@@ -168,7 +168,7 @@ const Project = ({ project }: { project: Project }) => {
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
                 >
                   <Link
@@ -188,7 +188,7 @@ const Project = ({ project }: { project: Project }) => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
             <Link
@@ -227,7 +227,7 @@ const Project = ({ project }: { project: Project }) => {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.4, delay: 0.3 }}
           className="text-sm md:text-base text-muted-foreground"
         >
@@ -239,7 +239,7 @@ const Project = ({ project }: { project: Project }) => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
