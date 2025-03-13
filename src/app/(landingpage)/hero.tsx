@@ -28,7 +28,8 @@ export const Hero = () => {
             {/* Title badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4 }}
               className="inline-flex bg-background/80 backdrop-blur-sm px-4 py-1.5 text-base gap-2 items-center rounded-full border mb-5"
             >
@@ -38,7 +39,8 @@ export const Hero = () => {
             {/* Name */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.1 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none text-center md:text-left mb-7"
             >
@@ -48,7 +50,8 @@ export const Hero = () => {
             {/* Description - more professional */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground text-center md:text-left max-w-md mb-5"
             >
@@ -59,7 +62,8 @@ export const Hero = () => {
             {/* Location and Email */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5 self-center md:self-start"
             >
@@ -83,7 +87,8 @@ export const Hero = () => {
           {/* Right side - Image with simplified styling */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
             className="relative md:flex-shrink-0"
           >

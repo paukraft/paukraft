@@ -2,6 +2,7 @@
 
 import { LPSectionTitle } from '@/components/lp-components'
 import { cn } from '@/lib/utils'
+import * as motion from 'motion/react-client'
 import Link from 'next/link'
 
 type CareerEntry = {
@@ -52,10 +53,26 @@ export const Career = () => {
       id="work-experience"
       className="w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-10 md:gap-16 mb-24 md:mb-48"
     >
-      <LPSectionTitle>Work Experience</LPSectionTitle>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
+        <LPSectionTitle>Work Experience</LPSectionTitle>
+      </motion.div>
+
       <div className="grid gap-10 md:gap-12">
         {careerData.map((entry, index) => (
-          <CareerEntry key={index} entry={entry} />
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <CareerEntry entry={entry} />
+          </motion.div>
         ))}
       </div>
     </section>
@@ -96,15 +113,19 @@ const CareerEntry = ({ entry }: { entry: CareerEntry }) => {
             {/* Technologies */}
             <div className="flex flex-wrap gap-2 mt-1">
               {entry.technologies.map((tech, techIndex) => (
-                <span
+                <motion.span
                   key={techIndex}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.3, delay: 0.1 + techIndex * 0.05 }}
                   className={cn(
                     'px-3 py-1 text-xs font-medium rounded-full',
                     'bg-muted text-muted-foreground'
                   )}
                 >
                   {tech}
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import { LPSectionTitle } from '@/components/lp-components'
 import { cn } from '@/lib/utils'
+import * as motion from 'motion/react-client'
 import { FaAws } from 'react-icons/fa'
 import {
   SiCloudflare,
@@ -88,27 +89,48 @@ export const MyTechStack = () => {
       id="tech-stack"
       className="w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-10 md:gap-16 mb-24 md:mb-48"
     >
-      <LPSectionTitle>Tech Stack</LPSectionTitle>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
+        <LPSectionTitle>Tech Stack</LPSectionTitle>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {techCategories.map((category) => (
-          <div key={category.name} className="flex flex-col gap-4">
+        {techCategories.map((category, categoryIndex) => (
+          <motion.div
+            key={category.name}
+            className="flex flex-col gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+          >
             <h3 className="text-xl font-semibold">{category.name}</h3>
             <div className="grid grid-cols-2 gap-4">
-              {category.technologies.map((tech) => (
-                <div
+              {category.technologies.map((tech, techIndex) => (
+                <motion.div
                   key={tech.name}
                   className={cn(
                     'flex items-center gap-3 p-3 rounded-lg',
                     'bg-muted/50 hover:bg-muted transition-colors'
                   )}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: categoryIndex * 0.1 + techIndex * 0.05,
+                  }}
                 >
                   <tech.icon className="size-5 text-primary" />
                   <span className="text-sm font-medium">{tech.name}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

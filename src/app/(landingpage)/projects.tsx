@@ -4,6 +4,7 @@ import { ImageWithFullscreen } from '@/components/image-with-fullscreen'
 import { LPSectionTitle } from '@/components/lp-components'
 import { cn } from '@/lib/utils'
 import { ArrowUpRight, Github } from 'lucide-react'
+import * as motion from 'motion/react-client'
 import Link from 'next/link'
 
 interface Project {
@@ -120,10 +121,26 @@ export const Projects = () => {
       id="projects"
       className="w-full max-w-5xl mx-auto px-6 md:px-12 pb-12 md:pb-24 flex flex-col gap-10 md:gap-16"
     >
-      <LPSectionTitle>Side Projects</LPSectionTitle>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
+        <LPSectionTitle>Side Projects</LPSectionTitle>
+      </motion.div>
+
       <div className="grid gap-10 md:gap-12">
-        {projects.map((project) => (
-          <Project key={project.title} project={project} />
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+          >
+            <Project project={project} />
+          </motion.div>
         ))}
       </div>
     </section>
@@ -138,62 +155,94 @@ const Project = ({ project }: { project: Project }) => {
         <div className="flex flex-col gap-3">
           <div className="flex items-start justify-between">
             <div className="flex gap-2">
-              <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit">
+              <motion.span
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit"
+              >
                 {project.year}
-              </span>
+              </motion.span>
               {project.githubLink && (
-                <Link
-                  href={project.githubLink}
-                  target="_blank"
-                  className="group/github rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit flex items-center gap-1"
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
                 >
-                  <Github className="inline-block h-3 w-3 mr-0.5" />
-                  <span className="max-sm:hidden">Open Source</span>
-                  <span className="sm:hidden">OS</span>
-                </Link>
+                  <Link
+                    href={project.githubLink}
+                    target="_blank"
+                    className="group/github rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground w-fit flex items-center gap-1"
+                  >
+                    <Github className="inline-block h-3 w-3 mr-0.5" />
+                    <span className="max-sm:hidden">Open Source</span>
+                    <span className="sm:hidden">OS</span>
+                  </Link>
+                </motion.div>
               )}
             </div>
           </div>
 
-          <Link
-            href={project.url}
-            target="_blank"
-            className="flex items-start gap-2 group/link"
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div
-              className={cn(
-                'flex items-center',
-                !project.faviconHasBG && 'bg-muted rounded-md p-1'
-              )}
+            <Link
+              href={project.url}
+              target="_blank"
+              className="flex items-start gap-2 group/link"
             >
-              <img
-                src={`https://www.google.com/s2/favicons?domain=${project.url}&sz=32`}
-                alt={`${project.title} favicon`}
-                className="size-4 sm:size-5 rounded-sm"
-              />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <h3 className="text-xl md:text-2xl font-semibold group-hover/link:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <ArrowUpRight className="size-4 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+              <div
+                className={cn(
+                  'flex items-center',
+                  !project.faviconHasBG && 'bg-muted rounded-md p-1'
+                )}
+              >
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${project.url}&sz=32`}
+                  alt={`${project.title} favicon`}
+                  className="size-4 sm:size-5 rounded-sm"
+                />
               </div>
-              <span className="text-sm text-muted-foreground">
-                {project.url.replace('https://', '')}
-              </span>
-            </div>
-          </Link>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-xl md:text-2xl font-semibold group-hover/link:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <ArrowUpRight className="size-4 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                </div>
+                <span className="text-sm text-muted-foreground">
+                  {project.url.replace('https://', '')}
+                </span>
+              </div>
+            </Link>
+          </motion.div>
         </div>
 
         {/* Description */}
-        <p className="text-sm md:text-base text-muted-foreground">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="text-sm md:text-base text-muted-foreground"
+        >
           {project.description}
-        </p>
+        </motion.p>
 
         {/* Images */}
         {project.images && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          >
             {project.images.map((image, index) => (
               <ImageWithFullscreen
                 key={index}
@@ -202,7 +251,7 @@ const Project = ({ project }: { project: Project }) => {
                 className="rounded-md ring-1 ring-muted"
               />
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
