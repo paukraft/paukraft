@@ -20,7 +20,7 @@ export const Hero = () => {
       </div>
 
       {/* Content container */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center py-14">
         {/* Content wrapper - side by side on desktop */}
         <div className="w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 mb-16 md:mb-24">
           {/* Left side - Text content */}
