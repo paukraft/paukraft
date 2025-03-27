@@ -23,7 +23,7 @@ const contactLinks = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/paukraft',
+    href: 'https://www.linkedin.com/in/pau-kraft-7606b3222/',
     icon: Linkedin,
     description: 'Professional profile & experience',
   },
