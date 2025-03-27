@@ -9,7 +9,7 @@ export const Hero = () => {
   return (
     <main className="min-h-[82svh] flex items-center justify-center relative">
       {/* Background gradient - more subtle */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-30 z-0">
         <AnimatedGradient
           colors={['#3B82F6', '#60A5FA', '#93C5FD']}
           speed={0.08}
@@ -52,7 +52,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
               className="text-lg md:text-xl text-muted-foreground text-center md:text-left max-w-md mb-5"
             >
               Building scalable web applications with modern technologies and a
@@ -64,7 +64,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5 self-center md:self-start"
             >
               <div className="flex items-center gap-2 text-sm text-muted-foreground/70">

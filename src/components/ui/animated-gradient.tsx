@@ -76,7 +76,7 @@ const AnimatedGradient: React.FC<AnimatedGradientProps> = ({
   return (
     <div
       ref={containerRef}
-      className={cn('absolute inset-0 overflow-hiddena', className)}
+      className={cn('absolute inset-0 overflow-hidden', className)}
     >
       <div className={cn(`absolute inset-0`, blurClass)}>
         {colors.map((color, index) => {
