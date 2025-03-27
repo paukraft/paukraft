@@ -1,5 +1,6 @@
 import { About } from './about'
 import { Career } from './career'
+import { Contact } from './contact'
 import { Hero } from './hero'
 import { Hiring } from './hiring'
 import { MyTechStack } from './my-techstack'
@@ -14,6 +15,7 @@ export default function Home() {
       <MyTechStack />
       <Career />
       <Projects />
+      <Contact />
     </>
   )
 }
