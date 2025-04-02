@@ -1,4 +1,4 @@
-import meImage from '@/assets/me.jpeg'
+import meImage from '@/assets/me.png'
 import AnimatedGradient from '@/components/ui/animated-gradient'
 import { Mail, MapPin } from 'lucide-react'
 import * as motion from 'motion/react-client'
