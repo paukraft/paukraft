@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Hi, I'm Pau Kraft
 
-## Getting Started
+[![Website](https://img.shields.io/badge/Website-paukraft.dev-blue)](https://paukraft.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/pau-kraft-7606b3222/)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2)](https://twitter.com/paukraft)
 
-First, run the development server:
+## 🚀 About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Fullstack web developer based in Germany, specializing in building modern, responsive web applications with a focus on user experience and performance. My expertise lies in the Next.js ecosystem, where I leverage React, TypeScript, and modern frontend technologies to create scalable and maintainable applications.
+
+```typescript
+const pau = {
+  role: "Fullstack Web Developer",
+  location: "Germany",
+  specialties: ["AI Integration", "Web Automation", "UI/UX Design"],
+  technologies: {
+    frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    backend: ["PostgreSQL", "Prisma", "Drizzle", "tRPC", "BetterAuth"],
+    infrastructure: ["AWS", "Vercel", "Cloudflare", "Hetzner", "PostHog"],
+    ai: ["OpenAI", "RAG Pipelines"]
+  },
+  currentFocus: "Building AI-powered applications and automation systems"
+};
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Current Focus
 
-## Learn More
+- Developing AI-powered applications that automate complex workflows
+- Building systems that enhance productivity and efficiency
+- Creating scalable multi-agent AI platforms
+- Optimizing web performance and user experience
 
-To learn more about Next.js, take a look at the following resources:
+## 📫 Get in Touch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Website: [paukraft.dev](https://paukraft.dev)
+- LinkedIn: [linkedin.com/in/pau-kraft-7606b3222](https://www.linkedin.com/in/pau-kraft-7606b3222/)
+- Twitter: [@paukraft](https://twitter.com/paukraft)
+- Email: [me@paukraft.com](mailto:me@paukraft.com)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📈 GitHub Stats
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=paukraft&layout=compact&theme=dracula)
